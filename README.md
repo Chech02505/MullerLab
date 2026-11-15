@@ -187,46 +187,7 @@ UDES_Muller_Lab_Sergio_Cristancho/
         └── solver.test.js
 ```
 
-## 9. Publicación en GitHub y Vercel
-
-### Paso A. Subir a un repositorio público de GitHub
-
-1. Inicia sesión en GitHub.
-2. Crea un repositorio público, por ejemplo `UDES-MullerLab` (puedes elegir otro nombre).
-3. En VS Code abre la terminal dentro de la carpeta del proyecto y ejecuta:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "Proyecto final - Metodo de Muller"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/UDES-MullerLab.git
-   git push -u origin main
-   ```
-
-   **Sustituye `TU_USUARIO` por tu nombre real de GitHub y usa la URL que GitHub muestre al crear el repositorio.** El `.gitignore` excluye `node_modules` y `dist`. GitHub Actions ejecutará automáticamente las pruebas y la construcción al publicar la rama `main`.
-
-### Paso B. Desplegar sin configurar backend en Vercel
-
-1. Inicia sesión en [Vercel](https://vercel.com/).
-2. En el panel selecciona **Add New → Project**.
-3. Conecta GitHub y selecciona el repositorio `UDES-MullerLab` (o el nombre elegido).
-4. Vercel detectará Vite automáticamente. Comprueba:
-   - Framework: **Vite**.
-   - Root Directory: `./`.
-   - Build Command: `npm run build`.
-   - Output Directory: `dist`.
-   - Variables de entorno: **ninguna**.
-5. Haz clic en **Deploy** y espera el resultado del despliegue en tu cuenta de Vercel.
-6. Abre la URL de producción que Vercel te proporcione y prueba el botón **Cargar Ejemplo Oficial UDES**.
-
-### Enlace de despliegue en Vercel
-
-**Pendiente:** se añadirá la URL real después del primer despliegue (no se ha publicado una URL todavía). El proyecto ya contiene `vercel.json` con la configuración de compilación.
-
-Referencias: [Vite — Despliegue estático](https://vite.dev/guide/static-deploy) · [Vercel](https://vercel.com/docs) · [Tailwind CSS + Vite](https://tailwindcss.com/docs/installation/using-vite).
-
-## 10. Limitaciones y consideraciones técnicas
+## 9. Limitaciones y consideraciones técnicas
 
 1. **No garantiza convergencia** para toda función o elección de puntos.
 2. En funciones con singularidades, discontinuidades, derivadas no analíticas (`abs`, `conj`, `re`, `im`) o valores inmensos, el resultado puede divergir; Newton y Secante se ofrecen solo como referencia de cálculo.
@@ -237,7 +198,7 @@ Referencias: [Vite — Despliegue estático](https://vite.dev/guide/static-deplo
 7. Los cálculos emplean precisión de coma flotante IEEE-754 de JavaScript, con redondeo limitado.
 8. La aplicación no resuelve polinomios de modo simbólico ni encuentra automáticamente todas sus raíces; se centra en el método iterativo de Müller.
 
-## 11. Integridad de la entrega
+## 10. Integridad de la entrega
 
 - Se incluye **código fuente editable**, no una captura ni maqueta sin funcionalidad.
 - Las 38 pruebas del motor numérico se ejecutaron con éxito en Node.js 22.
