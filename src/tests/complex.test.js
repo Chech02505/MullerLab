@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {C, add, sub, mul, div, sqrt, abs, near, isReal, fmt, square} from '../lib/complex.js';
+const almost=(v,x,tol=1e-8)=>assert.ok(Math.abs(v-x)<tol,`Expected ${v} ~= ${x}`);
+test('suma compleja',()=>assert.deepEqual(add(C(1,2),C(3,-2)),C(4,0)));
+test('resta compleja',()=>assert.deepEqual(sub(C(2,3),C(1,4)),C(1,-1)));
+test('multiplicación compleja',()=>assert.deepEqual(mul(C(1,2),C(3,4)),C(-5,10)));
+test('división compleja',()=>{let z=div(C(1,2),C(3,4));almost(z.re,.44);almost(z.im,.08)});
+test('raíz de negativo devuelve imaginario',()=>assert.deepEqual(sqrt(C(-4)),C(0,2)));
+test('raíz cuadrada de complejo',()=>{const z=sqrt(C(3,4));almost(z.re,2);almost(z.im,1)});
+test('sqrt con imaginario negativo',()=>{const z=sqrt(C(3,-4));almost(z.re,2);almost(z.im,-1)});
+test('módulo complejo',()=>almost(abs(C(3,4)),5));
+test('casi iguales',()=>{assert.ok(near(C(1),C(1+1e-14)));assert.ok(!near(C(1),C(1.1)))});
+test('real vs imaginario',()=>{assert.ok(isReal(C(2)));assert.ok(!isReal(C(0,2)))});
+test('formateo complejo',()=>assert.match(fmt(C(4,2)),/i/));
+test('cero en denominador se controla',()=>assert.throws(()=>div(C(2),C(0)),/cero/));
+test('números no finitos se rechazan',()=>assert.throws(()=>C(Infinity),/finito/));
