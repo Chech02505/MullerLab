@@ -11,6 +11,8 @@
 | Código estudiantil | 01240371021 |
 | Año | 2026 |
 
+Link de VERCEL para usar proyecto: https://muller-lab.vercel.app?utm_source=chatgpt.com
+
 ## 1. Descripción general
 
 MüllerLab permite escribir una ecuación no lineal `f(x) = 0`, configurar tres aproximaciones iniciales, la tolerancia y el número máximo de iteraciones, y estudiar el procedimiento completo del **método de Müller**. La interfaz presenta la solución, el residuo, las iteraciones, una visualización geométrica y una comparación con los métodos de la Secante y Newton–Raphson.
